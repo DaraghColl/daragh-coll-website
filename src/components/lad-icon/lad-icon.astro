@@ -1,16 +1,18 @@
 ---
 export interface Props {
 	variant: 'base' | 'wave';
+	id: string;
 	height: string;
 	width: string;
 }
 
-const { variant = 'base', height, width } = Astro.props as Props;
+const { id, variant = 'base', height, width } = Astro.props as Props;
 ---
 
 {
 	variant === 'base' && (
 		<svg
+			id={id}
 			style={`height: ${height}; width: ${width}`}
 			width="17"
 			height="17"
@@ -40,6 +42,7 @@ const { variant = 'base', height, width } = Astro.props as Props;
 {
 	variant === 'wave' && (
 		<svg
+			id={id}
 			style={`height: ${height}; width: ${width}`}
 			width="19"
 			height="17"
