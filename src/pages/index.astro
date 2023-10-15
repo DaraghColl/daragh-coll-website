@@ -45,3 +45,20 @@ const projects = await getCollection('projects');
 		</section>
 	</main>
 </Layout>
+
+<script>
+	import { inView, animate } from 'motion';
+
+	inView('[data-animate="in-view"]', ({ target }) => {
+		console.log(target);
+		const delay = target.getAttribute('data-animate-delay');
+		animate(
+			target,
+			{
+				opacity: [0, 1],
+				transform: ['translateY(1rem)', 'translateY(0)']
+			},
+			{ delay: Number(delay), duration: 0.5, easing: ['ease-in'] }
+		);
+	});
+</script>
