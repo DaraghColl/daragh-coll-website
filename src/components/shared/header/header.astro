@@ -2,9 +2,20 @@
 import LadIcon from '../lad-icon/lad-icon.astro';
 ---
 
-<nav class="fixed w-full bg-white p-4 md:p-8">
+<nav class="fixed z-50 w-full bg-white p-4 md:p-8">
 	<div class="container-sm mx-auto flex items-center justify-between">
 		<LadIcon id="navbar_lad" variant="base" height="2.5rem" width="2.5rem" />
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			class="h-8 w-8 md:hidden"
+		>
+			<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
+		</svg>
+
 		<ul class="hidden list-none gap-12 text-xl font-semibold md:flex">
 			<li>Projects</li>
 			<li>Experience</li>
