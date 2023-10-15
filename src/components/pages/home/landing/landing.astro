@@ -1,11 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
 import LadIcon from '../../../shared/lad-icon/lad-icon.astro';
 import Social from './social.astro';
 import Actions from './actions.astro';
-import Project from '../project.astro';
-
-const projects = await getCollection('projects');
 ---
 
 <div class="height-full-smallest relative grid place-content-center">
@@ -22,32 +18,12 @@ const projects = await getCollection('projects');
 				I am a fullstack developer, specialising in front end development. I like to design, code
 				and <span class="animated-text">animate</span>.
 			</h3>
-			{projects.map((project) => <a> {project.data.title}</a>)}
 		</div>
 
 		<Actions />
 		<Social />
 	</div>
 </div>
-
-<section class="bg-indigo-200">
-	<div>
-		<div class="container-sm grid grid-cols-1 gap-10">
-			{
-				projects.map(({ data }) => {
-					return (
-						<Project
-							title={data.title}
-							description={data.description}
-							image={data.image}
-							tech={data.tech}
-						/>
-					);
-				})
-			}
-		</div>
-	</div>
-</section>
 
 <style>
 	.animated-text {
