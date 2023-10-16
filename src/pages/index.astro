@@ -10,7 +10,7 @@ const projects = await getCollection('projects');
 <Layout title="Welcome to Astro.">
 	<main>
 		<Landing />
-		<section class="bg-indigo-200 py-8">
+		<section id="section__projects" class="bg-indigo-200 py-8">
 			<div class="flex items-center justify-center gap-2">
 				<h4 class="text-center text-3xl font-semibold tracking-tight text-gray-900">Projects</h4>
 				<svg
@@ -49,14 +49,24 @@ const projects = await getCollection('projects');
 <script>
 	import { inView, animate } from 'motion';
 
-	inView('[data-animate="in-view"]', ({ target }) => {
-		console.log(target);
+	inView('[data-animate="fade-in"]', ({ target }) => {
 		const delay = target.getAttribute('data-animate-delay');
 		animate(
 			target,
 			{
 				opacity: [0, 1],
 				transform: ['translateY(1rem)', 'translateY(0)']
+			},
+			{ delay: Number(delay), duration: 0.5, easing: ['ease-in'] }
+		);
+	});
+
+	inView('[data-animate="lift"]', ({ target }) => {
+		const delay = target.getAttribute('data-animate-delay');
+		animate(
+			target,
+			{
+				transform: ['translateY(3rem)', 'translateY(0)']
 			},
 			{ delay: Number(delay), duration: 0.5, easing: ['ease-in'] }
 		);
