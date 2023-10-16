@@ -11,16 +11,19 @@ export interface Props {
 const { title, description, image, tech } = Astro.props as Props;
 ---
 
-<div class="max-h-sm flex flex-col gap-4 rounded bg-white shadow-lg md:flex-row">
+<div
+	class="max-h-sm flex flex-col gap-4 rounded bg-white shadow-lg md:flex-row"
+	data-animate="lift"
+	data-animate-delay="0.25"
+>
 	<Image
 		src={image}
 		width={1024}
 		height={1024 / 1.5}
 		alt={title}
 		format="webp"
-		class="w-full rounded-s md:w-1/2"
+		class="w-full rounded-t md:w-1/2 md:rounded-s md:rounded-t-none"
 	/>
-
 	<div class="flex flex-col justify-center gap-4 px-6 py-4">
 		<div class="text-xl font-bold">{title}</div>
 		<p class="font-normal tracking-tight text-gray-500">
