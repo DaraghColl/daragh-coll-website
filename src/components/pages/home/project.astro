@@ -22,10 +22,11 @@ const { title, description, image, tech } = Astro.props as Props;
 		height={1024 / 1.5}
 		alt={title}
 		format="webp"
+		loading="eager"
 		class="w-full rounded-t md:w-1/2 md:rounded-s md:rounded-t-none"
 	/>
 	<div class="flex flex-col justify-center gap-4 px-6 py-4">
-		<div class="text-xl font-bold">{title}</div>
+		<h3 class="text-xl font-bold">{title}</h3>
 		<p class="font-normal tracking-tight text-gray-500">
 			{description}
 		</p>
