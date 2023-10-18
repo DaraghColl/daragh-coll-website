@@ -4,6 +4,7 @@ import Landing from '../components/pages/home/landing/landing.astro';
 import { getCollection } from 'astro:content';
 import Project from '../components/pages/home/project.astro';
 import WorkExperience from '../components/pages/home/work-experience.astro';
+import Contact from '../components/pages/home/contact.astro';
 
 const projects = await getCollection('projects');
 const workExperience = await getCollection('workExperience');
@@ -17,7 +18,6 @@ const workExperience = await getCollection('workExperience');
 				<div class="flex flex-col">
 					<div class="self-center rounded bg-slate-900 p-2">
 						<svg
-							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke-width="1.5"
@@ -56,7 +56,6 @@ const workExperience = await getCollection('workExperience');
 				<div class="flex flex-col">
 					<div class="self-center rounded bg-slate-900 p-2">
 						<svg
-							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke-width="1.5"
@@ -91,6 +90,31 @@ const workExperience = await getCollection('workExperience');
 					})
 				}
 			</div>
+		</section>
+
+		<section id="section__contact" class="py-8">
+			<div class="flex items-center justify-center gap-2">
+				<div class="flex flex-col">
+					<div class="self-center rounded bg-slate-900 p-2">
+						<svg
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="white"
+							class="section-heading-icon h-6 w-6"
+						>
+							<path
+								class="section-heading-icon-path"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+							></path>
+						</svg>
+					</div>
+					<h4 class="text-center text-3xl font-semibold tracking-tight text-gray-900">Contact</h4>
+				</div>
+			</div>
+			<Contact />
 		</section>
 	</main>
 </Layout>
