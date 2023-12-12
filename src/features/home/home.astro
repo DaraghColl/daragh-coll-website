@@ -31,8 +31,8 @@ interface WorkExperience {
 }
 
 export interface Props {
-	projects: Project;
-	workExperience: WorkExperience;
+	projects: Project[];
+	workExperience: WorkExperience[];
 }
 
 const { projects, workExperience } = Astro.props as Props;
