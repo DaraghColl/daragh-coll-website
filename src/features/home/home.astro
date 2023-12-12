@@ -1,0 +1,153 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Landing from './components/landing/landing.astro';
+import Project from './components/project.astro';
+import WorkExperience from './components/work-experience.astro';
+import Contact from './components/contact.astro';
+import LadIcon from '../../components/lad-icon/lad-icon.astro';
+
+interface Project {
+	data: {
+		image: {
+			src: string;
+			width: number;
+			height: number;
+			format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
+		};
+		title: string;
+		description: string;
+		tech: string[];
+	};
+}
+
+interface WorkExperience {
+	data: {
+		title: string;
+		description: string;
+		tech: string[];
+		date: string;
+		job: string;
+	};
+}
+
+export interface Props {
+	projects: Project;
+	workExperience: WorkExperience;
+}
+
+const { projects, workExperience } = Astro.props as Props;
+---
+
+<Layout title="Daragh Coll website">
+	<main>
+		<Landing />
+		<section id="section__projects" class="py-8">
+			<div class="flex items-center justify-center gap-2">
+				<div class="flex flex-col items-center">
+					<LadIcon id="projects_lad" variant="projects" height="4rem" width="4rem" />
+					<h4 class="text-center text-3xl font-semibold tracking-tight text-gray-900">Projects</h4>
+				</div>
+			</div>
+			<div class="container-sm grid grid-cols-1 gap-10">
+				{
+					projects.map(({ data }) => {
+						return (
+							<Project
+								title={data.title}
+								description={data.description}
+								image={data.image}
+								tech={data.tech}
+							/>
+						);
+					})
+				}
+			</div>
+		</section>
+
+		<section id="section__experience" class="py-8">
+			<div class="flex items-center justify-center gap-2">
+				<div class="flex flex-col items-center">
+					<LadIcon id="contact_lad" variant="work" height="4rem" width="4rem" />
+					<h4 class="text-center text-3xl font-semibold tracking-tight text-gray-900">
+						Experience
+					</h4>
+				</div>
+			</div>
+			<div class="container-sm grid grid-cols-1 gap-10">
+				{
+					workExperience.map(({ data }) => {
+						return (
+							<WorkExperience
+								title={data.title}
+								job={data.job}
+								description={data.description}
+								date={data.date}
+								tech={data.tech}
+							/>
+						);
+					})
+				}
+			</div>
+		</section>
+
+		<section id="section__contact" class="py-8">
+			<div class="flex items-center justify-center gap-2">
+				<div class="flex flex-col items-center">
+					<LadIcon id="contact_lad" variant="contact" height="4rem" width="4rem" />
+					<h4 class="text-center text-3xl font-semibold tracking-tight text-gray-900">Contact</h4>
+				</div>
+			</div>
+			<Contact />
+		</section>
+	</main>
+</Layout>
+
+<script>
+	import { inView, animate } from 'motion';
+
+	inView('[data-animate="fade-in"]', ({ target }) => {
+		const delay = target.getAttribute('data-animate-delay');
+		animate(
+			target,
+			{
+				opacity: [0, 1],
+				transform: ['translateY(1rem)', 'translateY(0)']
+			},
+			{ delay: Number(delay), duration: 0.5, easing: ['ease-in'] }
+		);
+	});
+
+	inView('[data-animate="lift"]', ({ target }) => {
+		const delay = target.getAttribute('data-animate-delay');
+		animate(
+			target,
+			{
+				transform: ['translateY(3rem)', 'translateY(0)']
+			},
+			{ duration: 0.5, easing: ['ease-in'] }
+		);
+	});
+
+	inView('.section-heading-icon', ({ target }) => {
+		setTimeout(() => {
+			target.classList.add('icon-path-animation');
+		}, 500);
+	});
+</script>
+
+<style>
+	.section-heading-icon {
+		stroke-dasharray: 450;
+		stroke-dashoffset: 450;
+	}
+
+	.icon-path-animation {
+		animation: draw 5s linear forwards;
+	}
+
+	@keyframes draw {
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+</style>
