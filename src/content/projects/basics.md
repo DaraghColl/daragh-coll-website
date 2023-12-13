@@ -1,6 +1,7 @@
 ---
-title: 'Basics Learning Platform'
+title: Basics Learning Platform
 description: Application for learning the basics of several topics, math, language and more
 image: './images/basics.png'
-tech: ['react', 'tailwind', 'vite']
+tech: ['react', 'tailwind']
+order: 4
 ---

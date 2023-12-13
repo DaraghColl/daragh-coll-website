@@ -5,6 +5,10 @@ import Home from '../features/home/home.astro';
 
 const projects = await getCollection('projects');
 const workExperience = await getCollection('workExperience');
+
+const sortedProiects = projects.sort((a, b) => {
+	return a.data.order - b.data.order;
+});
 ---
 
-<Home projects={projects} workExperience={workExperience} />
+<Home projects={sortedProiects} workExperience={workExperience} />
