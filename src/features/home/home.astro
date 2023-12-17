@@ -1,4 +1,5 @@
 ---
+import { type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Landing from './components/landing/landing.astro';
 import Project from './components/project.astro';
@@ -6,33 +7,9 @@ import WorkExperience from './components/work-experience.astro';
 import Contact from './components/contact.astro';
 import LadIcon from '../../components/lad-icon/lad-icon.astro';
 
-interface Project {
-	data: {
-		image: {
-			src: string;
-			width: number;
-			height: number;
-			format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
-		};
-		title: string;
-		description: string;
-		tech: string[];
-	};
-}
-
-interface WorkExperience {
-	data: {
-		title: string;
-		description: string;
-		tech: string[];
-		date: string;
-		job: string;
-	};
-}
-
-export interface Props {
-	projects: Project[];
-	workExperience: WorkExperience[];
+interface Props {
+	projects: CollectionEntry<'projects'>[];
+	workExperience: CollectionEntry<'workExperience'>[];
 }
 
 const { projects, workExperience } = Astro.props as Props;
@@ -48,7 +25,7 @@ const { projects, workExperience } = Astro.props as Props;
 					<h4 class="text-center text-3xl font-semibold tracking-tight text-gray-900">Projects</h4>
 				</div>
 			</div>
-			<div class="container-sm grid grid-cols-1 gap-10">
+			<div class="container-sm grid grid-cols-1 gap-10 md:gap-20">
 				{
 					projects.map(({ data }) => {
 						return (
@@ -57,6 +34,8 @@ const { projects, workExperience } = Astro.props as Props;
 								description={data.description}
 								image={data.image}
 								tech={data.tech}
+								code={data.code}
+								demo={data.demo}
 							/>
 						);
 					})
