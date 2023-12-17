@@ -3,6 +3,7 @@
 		name="contact"
 		method="POST"
 		data-netlify="true"
+		netlify-honeypot="honey-pot-field"
 		class="m-auto flex max-w-md flex-col gap-4"
 	>
 		<div>
@@ -38,6 +39,10 @@
 				id="message"
 				required
 				class="w-full rounded bg-slate-100 p-2 outline-none"></textarea>
+		</div>
+		<div class="hidden">
+			<label for="honey-pot-field">Don’t fill this out if you’re human</label>
+			<input name="honey-pot-field" />
 		</div>
 		<button
 			type="submit"
