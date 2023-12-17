@@ -8,6 +8,8 @@ const projectsCollection = defineCollection({
 			description: z.string(),
 			image: image(),
 			tech: z.array(z.string()),
+			code: z.string().optional(),
+			demo: z.string().optional(),
 			order: z.number()
 		})
 });

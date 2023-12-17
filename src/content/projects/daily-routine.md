@@ -2,6 +2,8 @@
 title: Daily Routine
 description: Application for planning your daily tasks
 image: './images/daily-routine.png'
-tech: ['react', 'chakra ui']
-order: 2
+tech: ['react', 'chakra ui', 'framer motion', 'local storage']
+order: 4
+code: https://github.com/DaraghColl/routine-app
+demo: https://dc-routine-app.netlify.app/
 ---
