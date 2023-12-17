@@ -12,17 +12,19 @@
 				name="name"
 				id="name"
 				autocomplete="off"
+				required
 				class="w-full rounded bg-slate-100 p-2 outline-none"
 			/>
 		</div>
 
 		<div>
-			<label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Name</label>
+			<label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
 			<input
 				type="email"
 				name="email"
 				id="email"
 				autocomplete="off"
+				required
 				class="w-full rounded bg-slate-100 p-2 outline-none"
 			/>
 		</div>
@@ -31,8 +33,11 @@
 			<label for="message" class="block text-sm font-semibold leading-6 text-gray-900"
 				>Message</label
 			>
-			<textarea name="message" id="message" class="w-full rounded bg-slate-100 p-2 outline-none"
-			></textarea>
+			<textarea
+				name="message"
+				id="message"
+				required
+				class="w-full rounded bg-slate-100 p-2 outline-none"></textarea>
 		</div>
 		<button
 			type="submit"
