@@ -96,17 +96,6 @@ const { projects, workExperience } = Astro.props as Props;
 		);
 	});
 
-	inView('[data-animate="lift"]', ({ target }) => {
-		const delay = target.getAttribute('data-animate-delay');
-		animate(
-			target,
-			{
-				transform: ['translateY(3rem)', 'translateY(0)']
-			},
-			{ duration: 0.5, easing: ['ease-in'] }
-		);
-	});
-
 	inView('.section-heading-icon', ({ target }) => {
 		setTimeout(() => {
 			target.classList.add('icon-path-animation');
