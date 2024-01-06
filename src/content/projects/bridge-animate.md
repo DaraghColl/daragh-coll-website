@@ -4,5 +4,5 @@ description: create svg animations with no code. export as Javascript or CSS ani
 image: './images/bridge-animate.png'
 tech: ['react', 'tailwind']
 order: 0
-demo: https://dc-basics.netlify.app/
+demo: https://bridge-animate-demo.netlify.app/
 ---
