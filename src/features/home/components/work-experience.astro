@@ -4,12 +4,11 @@ import { Image } from 'astro:assets';
 export interface Props {
 	title: string;
 	job: string;
-	description: string;
 	date: string;
 	tech: string[];
 }
 
-const { title, job, description, date, tech } = Astro.props as Props;
+const { title, job, date, tech } = Astro.props as Props;
 ---
 
 <div
@@ -22,9 +21,6 @@ const { title, job, description, date, tech } = Astro.props as Props;
 		<span>{date}</span>
 		<hr />
 		<h3 class="text-xl font-bold">{job}</h3>
-		<p class="font-normal tracking-tight text-gray-500">
-			{description}
-		</p>
 		<div>
 			{
 				tech.map((techItem) => {
