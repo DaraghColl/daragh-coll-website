@@ -15,8 +15,8 @@ const { title, description, image, tech, code, demo, order } = Astro.props as Pr
 
 const gradientMap: Record<number, string> = {
 	0: 'bg-gradient-to-r from-cyan-500 to-blue-500',
-	1: 'bg-gradient-to-r from-blue-500 to-indigo-500',
-	2: 'bg-gradient-to-r from-indigo-500 to-violet-500',
+	1: 'bg-gradient-to-r from-blue-500 to-indigo-600',
+	2: 'bg-gradient-to-r from-indigo-600 to-violet-500',
 	3: 'bg-gradient-to-r from-violet-500 to-purple-500',
 	4: 'bg-gradient-to-r from-purple-700 to-fuchsia-600',
 	5: 'bg-gradient-to-r from-fuchsia-700 to-rose-400'
@@ -63,7 +63,7 @@ const gradientMap: Record<number, string> = {
 					<a
 						href={code}
 						target="_blank"
-						class="text-md flex cursor-pointer items-center gap-2 rounded bg-gray-950 px-3.5 py-2.5 font-semibold text-indigo-500 shadow-sm"
+						class="text-md flex cursor-pointer items-center gap-2 rounded bg-gray-950 px-3.5 py-2.5 font-semibold text-indigo-600 shadow-sm"
 					>
 						Code
 						<svg
@@ -88,7 +88,7 @@ const gradientMap: Record<number, string> = {
 					<a
 						href={demo}
 						target="_blank"
-						class="text-md flex cursor-pointer items-center gap-2 rounded bg-gray-950 px-3.5 py-2.5 font-semibold text-indigo-500 shadow-sm"
+						class="text-md flex cursor-pointer items-center gap-2 rounded bg-gray-950 px-3.5 py-2.5 font-semibold text-indigo-600 shadow-sm"
 					>
 						Demo
 						<svg
