@@ -7,38 +7,37 @@
 		class="m-auto flex max-w-md flex-col gap-4"
 	>
 		<div>
-			<label for="name" class="block text-sm font-semibold leading-6 text-gray-900">Name</label>
+			<label for="name" class="block text-sm font-semibold leading-6 text-white">Name</label>
 			<input
 				type="text"
 				name="name"
 				id="name"
 				autocomplete="off"
 				required
-				class="w-full rounded bg-slate-100 p-2 outline-none"
+				class="w-full rounded border-2 border-gray-800 bg-gray-950 p-2 text-white outline-none"
 			/>
 		</div>
 
 		<div>
-			<label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
+			<label for="email" class="block text-sm font-semibold leading-6 text-white">Email</label>
 			<input
 				type="email"
 				name="email"
 				id="email"
 				autocomplete="off"
 				required
-				class="w-full rounded bg-slate-100 p-2 outline-none"
+				class="w-full rounded border-2 border-gray-800 bg-gray-950 p-2 text-white outline-none"
 			/>
 		</div>
 
 		<div>
-			<label for="message" class="block text-sm font-semibold leading-6 text-gray-900"
-				>Message</label
-			>
+			<label for="message" class="block text-sm font-semibold leading-6 text-white">Message</label>
 			<textarea
 				name="message"
 				id="message"
 				required
-				class="w-full rounded bg-slate-100 p-2 outline-none"></textarea>
+				class="w-full rounded border-2 border-gray-800 bg-gray-950 p-2 text-white outline-none"
+			></textarea>
 		</div>
 		<div class="hidden">
 			<label for="honey-pot-field">Don’t fill this out if you’re human</label>
@@ -46,7 +45,7 @@
 		</div>
 		<button
 			type="submit"
-			class="text-md cursor-pointer rounded bg-gray-900 px-3.5 py-2.5 font-semibold text-white shadow-sm transition ease-in-out hover:bg-indigo-500"
+			class="text-md cursor-pointer rounded bg-indigo-500 px-3.5 py-2.5 font-semibold text-white shadow-sm transition ease-in-out"
 			>Send Message</button
 		>
 	</form>

@@ -12,7 +12,7 @@ const { title, job, date, tech } = Astro.props as Props;
 ---
 
 <div
-	class="max-h-sm flex flex-col gap-4 rounded bg-white opacity-0 shadow-lg md:flex-row"
+	class="max-h-sm mb-10 flex flex-col gap-4 rounded bg-gray-950 text-white opacity-0 shadow-lg shadow-gray-900"
 	data-animate="fade-in"
 	data-animate-delay="0.25"
 >
@@ -25,7 +25,7 @@ const { title, job, date, tech } = Astro.props as Props;
 			{
 				tech.map((techItem) => {
 					return (
-						<div class="mb-2 mr-2 inline-block rounded bg-gray-900 px-3 py-1 text-sm font-normal text-white">
+						<div class="mb-4 mr-2 inline-block rounded bg-gray-900 px-3 py-1 text-sm font-normal text-white">
 							{techItem}
 						</div>
 					);

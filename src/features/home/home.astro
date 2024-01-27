@@ -18,14 +18,16 @@ const { projects, workExperience } = Astro.props as Props;
 <Layout title="Daragh Coll">
 	<main>
 		<Landing />
-		<section id="section__projects" class="py-8">
+		<section id="section__projects" class="section-projects bg-gray-950 py-8">
 			<div class="mb-5 flex items-center justify-center gap-2">
 				<div class="flex flex-col items-center">
-					<LadIcon id="projects_lad" variant="projects" height="4rem" width="4rem" />
-					<h4 class="text-center text-3xl font-semibold tracking-tight text-gray-900">Projects</h4>
+					<LadIcon id="projects_lad" variant="projects" height="4rem" width="4rem" color="white" />
+					<h4 class="mt-4 text-center text-3xl font-semibold tracking-tight text-white">
+						Projects
+					</h4>
 				</div>
 			</div>
-			<div class="container-sm grid auto-rows-fr grid-cols-1 gap-10 md:gap-20">
+			<div class="container-md grid auto-rows-fr grid-cols-1 gap-10 md:gap-20">
 				{
 					projects.map(({ data }) => {
 						return (
@@ -36,6 +38,7 @@ const { projects, workExperience } = Astro.props as Props;
 								tech={data.tech}
 								code={data.code}
 								demo={data.demo}
+								order={data.order}
 							/>
 						);
 					})
@@ -43,11 +46,11 @@ const { projects, workExperience } = Astro.props as Props;
 			</div>
 		</section>
 
-		<section id="section__experience" class="py-8">
+		<section id="section__experience" class="bg-gray-950 py-8">
 			<div class="mb-5 flex items-center justify-center gap-2">
 				<div class="flex flex-col items-center">
-					<LadIcon id="contact_lad" variant="work" height="4rem" width="4rem" />
-					<h4 class="text-center text-3xl font-semibold tracking-tight text-gray-900">
+					<LadIcon id="contact_lad" variant="work" height="4rem" width="4rem" color="white" />
+					<h4 class="mt-4 text-center text-3xl font-semibold tracking-tight text-white">
 						Experience
 					</h4>
 				</div>
@@ -56,23 +59,18 @@ const { projects, workExperience } = Astro.props as Props;
 				{
 					workExperience.map(({ data }) => {
 						return (
-							<WorkExperience
-								title={data.title}
-								job={data.job}
-								date={data.date}
-								tech={data.tech}
-							/>
+							<WorkExperience title={data.title} job={data.job} date={data.date} tech={data.tech} />
 						);
 					})
 				}
 			</div>
 		</section>
 
-		<section id="section__contact" class="py-8">
+		<section id="section__contact" class="bg-gray-950 py-8">
 			<div class="mb-5 flex items-center justify-center gap-2">
 				<div class="flex flex-col items-center">
-					<LadIcon id="contact_lad" variant="contact" height="4rem" width="4rem" />
-					<h4 class="text-center text-3xl font-semibold tracking-tight text-gray-900">Contact</h4>
+					<LadIcon id="contact_lad" variant="contact" height="4rem" width="4rem" color="white" />
+					<h4 class="mt-4 text-center text-3xl font-semibold tracking-tight text-white">Contact</h4>
 				</div>
 			</div>
 			<Contact />
@@ -107,6 +105,11 @@ const { projects, workExperience } = Astro.props as Props;
 		stroke-dasharray: 450;
 		stroke-dashoffset: 450;
 	}
+
+	/* .section-projects {
+		mask-image: linear-gradient(to bottom, white, white, #030712, #030712);
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(17 24 39 / 0.7)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+	} */
 
 	.icon-path-animation {
 		animation: draw 5s linear forwards;
