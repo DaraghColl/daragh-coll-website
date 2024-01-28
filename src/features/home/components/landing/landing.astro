@@ -28,7 +28,7 @@ import Actions from './actions.astro';
 		<Social />
 	</div>
 	<div
-		class="absolute -top-40 left-[30%] z-10 h-3/4 w-40 -rotate-45 rounded-full bg-gradient-to-r from-indigo-600 to-violet-500 opacity-60 blur-3xl"
+		class="gradient-element absolute -top-40 left-[30%] z-10 h-3/4 w-40 -rotate-45 rounded-full bg-gradient-to-r from-indigo-600 to-violet-500 opacity-60 blur-3xl"
 	>
 	</div>
 </div>
@@ -54,6 +54,21 @@ import Actions from './actions.astro';
 			to {
 				background-position: var(--bg-size) 0;
 			}
+		}
+	}
+
+	.gradient-element {
+		animation: breath 5s infinite linear;
+	}
+	@keyframes breath {
+		0% {
+			scale: 1;
+		}
+		50% {
+			scale: 1.5;
+		}
+		100% {
+			scale: 1;
 		}
 	}
 </style>
