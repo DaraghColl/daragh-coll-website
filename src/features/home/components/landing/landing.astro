@@ -4,8 +4,11 @@ import Social from './social.astro';
 import Actions from './actions.astro';
 ---
 
-<div class="height-full-smallest landing relative grid place-content-center bg-gray-950">
-	<div class="container-sm grid justify-center">
+<div
+	id="section_landing"
+	class="height-full-smallest landing landing relative grid place-content-center overflow-hidden bg-gray-950"
+>
+	<div class="container-sm z-20 grid justify-center">
 		<div>
 			<div class="flex items-center gap-4">
 				<h1 class="text-5xl font-bold tracking-tight text-white md:text-6xl">Hi, I’m Daragh</h1>
@@ -21,9 +24,12 @@ import Actions from './actions.astro';
 				and <span class="animated-text">animate</span>.
 			</h3>
 		</div>
-
 		<Actions />
 		<Social />
+	</div>
+	<div
+		class="absolute -top-40 left-[30%] z-10 h-3/4 w-40 -rotate-45 rounded-full bg-gradient-to-r from-indigo-600 to-violet-500 opacity-60 blur-3xl"
+	>
 	</div>
 </div>
 
@@ -51,9 +57,3 @@ import Actions from './actions.astro';
 		}
 	}
 </style>
-
-<script>
-	const lad = document.getElementById('landing_lad');
-
-	lad && lad.classList.add('animate-bounce');
-</script>
