@@ -1,6 +1,6 @@
 ---
 title: No code animation tool (early development)
-description: create svg animations with no code. export as Javascript or CSS animations
+description: Create svg animations with no code. export as Javascript or CSS animations
 image: './images/bridge-animate.png'
 tech: ['react', 'tailwind', 'cypress']
 order: 0
