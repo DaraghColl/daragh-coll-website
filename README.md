@@ -6,7 +6,6 @@
 
 - [astro](https://astro.build/)
 - [tailwindcss](https://tailwindcss.com/)
-- [motion one](https://motion.dev/)
 
 ## 🚀 Project Structure
 
