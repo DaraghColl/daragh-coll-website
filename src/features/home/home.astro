@@ -92,32 +92,11 @@ const { projects, workExperience } = Astro.props as Props;
 			{ delay: Number(delay), duration: 0.5, easing: ['ease-in'] }
 		);
 	});
-
-	inView('.section-heading-icon', ({ target }) => {
-		setTimeout(() => {
-			target.classList.add('icon-path-animation');
-		}, 500);
-	});
 </script>
 
 <style>
 	.section-heading-icon {
 		stroke-dasharray: 450;
 		stroke-dashoffset: 450;
-	}
-
-	/* .section-projects {
-		mask-image: linear-gradient(to bottom, white, white, #030712, #030712);
-		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(17 24 39 / 0.7)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
-	} */
-
-	.icon-path-animation {
-		animation: draw 5s linear forwards;
-	}
-
-	@keyframes draw {
-		to {
-			stroke-dashoffset: 0;
-		}
 	}
 </style>
