@@ -25,7 +25,19 @@ const workExperienceCollection = defineCollection({
 	})
 });
 
+const blogCollection = defineCollection({
+	type: 'content',
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			image: image(),
+			pubDate: z.string()
+		})
+});
+
 export const collections = {
 	projects: projectsCollection,
-	workExperience: workExperienceCollection
+	workExperience: workExperienceCollection,
+	blog: blogCollection
 };
