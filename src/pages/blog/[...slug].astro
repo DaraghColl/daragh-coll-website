@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import Contact from '../../features/home/components/contact.astro';
 
 export async function getStaticPaths() {
 	const blogPosts = await getCollection('blog');
@@ -22,9 +23,9 @@ const { Content } = await blogPost.render();
 <Layout title={`Blog - ${title}`}>
 	<div class="py-24 sm:py-32">
 		<div class="container-md px-6 lg:px-8">
-			<article class="text-center">
+			<div class="mb-20 flex justify-center">
 				<div class="group relative flex flex-col gap-2">
-					<h3 class="mt-3 text-4xl font-semibold leading-6 text-white group-hover:text-gray-200">
+					<h3 class="mt-3 text-4xl font-semibold text-white group-hover:text-gray-200">
 						{title}
 					</h3>
 					<p class="mt-5 line-clamp-3 text-lg leading-6 text-gray-400">
@@ -34,6 +35,9 @@ const { Content } = await blogPost.render();
 						{pubDate}
 					</time>
 				</div>
+			</div>
+			<article class="prose prose-invert m-auto max-w-5xl">
+				<Content />
 			</article>
 		</div>
 	</div>

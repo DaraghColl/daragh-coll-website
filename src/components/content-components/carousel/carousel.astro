@@ -1,0 +1,51 @@
+<div class="slide-container" id="slide_container">
+	<img
+		src="https://images.pexels.com/photos/2382681/pexels-photo-2382681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+		class="slide"
+		id="slide"
+	/>
+	<img
+		src="https://images.pexels.com/photos/1650882/pexels-photo-1650882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+		class="slide"
+		id="slide"
+	/>
+	<img
+		src="https://images.pexels.com/photos/1649273/pexels-photo-1649273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+		class="slide"
+		id="slide"
+	/>
+	<img
+		src="https://images.pexels.com/photos/1650829/pexels-photo-1650829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+		class="slide"
+		id="slide"
+	/>
+	<img
+		src="https://images.pexels.com/photos/3220828/pexels-photo-3220828.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+		class="slide"
+		id="slide"
+	/>
+</div>
+
+<style>
+	.slide-container {
+		display: flex;
+		gap: 2rem;
+		overflow: scroll;
+		scroll-behavior: smooth;
+		scroll-snap-type: x mandatory;
+	}
+
+	.slide-container::-webkit-scrollbar {
+		display: none;
+	}
+
+	.slide {
+		width: 80%;
+		min-width: 80%;
+		height: 300px;
+		border-radius: 1rem;
+		object-fit: cover;
+		scroll-snap-align: center;
+		scroll-snap-stop: always;
+	}
+</style>
