@@ -4,8 +4,6 @@ import { Image } from 'astro:assets';
 
 const { slug, data } = Astro.props as CollectionEntry<'blog'>;
 const { title, description, pubDate, image } = data;
-
-console.log(data);
 ---
 
 <article class="flex flex-col items-start justify-between">
