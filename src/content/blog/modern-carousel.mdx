@@ -5,7 +5,7 @@ image: './images/jobs-board.png'
 pubDate: '1 March, 2024'
 ---
 
-import Carousel from '../../components/content-components/carousel/carousel.astro'
+import Carousel from '../../components/content-components/carousel/carousel.astro';
 
 ## The scenario
 
@@ -27,27 +27,26 @@ The html is pretty straight forward. We have a container div and inside we have 
 		src="https://images.pexels.com/photos/1650882/pexels-photo-1650882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 		class="slide"
 	/>
-    ...repeat with other images
+	...repeat with other images
 </div>
 ```
 
 ## CSS
 
-Lets start with the container. 
+Lets start with the container.
 
 ```css
 .slide-container {
-    display: flex;
-    gap: 2rem;
-    overflow: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
+	display: flex;
+	gap: 2rem;
+	overflow: scroll;
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
 }
 
 .slide-container::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
-
 ```
 
 We start by using **flex** to put our images in a row, give a **gap** between each image of **2 rem**, and set the **overflow** to **scroll**, so we can move left to write to see each image as we scroll. <br />
@@ -56,17 +55,17 @@ We set the **scroll-behavior** to **smooth** which does what you would expect, a
 
 And finally we hide the scrollbar.
 
-Now lets add the styling for each slide (image). 
+Now lets add the styling for each slide (image).
 
 ```css
 .slide {
-    width: 80%;
-    min-width: 80%;
-    height: 300px;
-    border-radius: 1rem;
-    object-fit: cover;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
+	width: 80%;
+	min-width: 80%;
+	height: 300px;
+	border-radius: 1rem;
+	object-fit: cover;
+	scroll-snap-align: center;
+	scroll-snap-stop: always;
 }
 ```
 
@@ -78,6 +77,3 @@ The last two properties:
 
 Setting the **scroll-snap-align** to center will ensure that as you scroll, slides with an slide on either side will always scroll to the center. <br />
 The property **scroll-snap-stop** ensures that when scrolling, it stops at the next scroll item (try removing this and you can scroll across multiple slides)
-
-
-
