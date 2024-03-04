@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 
-import Home from '../features/home/home.astro';
+import Home from '@components/home/home.astro';
 
 const projects = await getCollection('projects');
 const workExperience = await getCollection('workExperience');
