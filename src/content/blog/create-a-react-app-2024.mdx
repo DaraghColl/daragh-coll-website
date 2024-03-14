@@ -1,0 +1,104 @@
+---
+title: 'How to create a react app in 2024'
+description: ''
+image: './images/jobs-board.png'
+pubDate: '20 March, 2024'
+---
+
+If you have looked up how to create a react app, you will know that it can be quite difficult to decide which route to take. Hopefully this article will help you get started with creating a new react app which has all the functionality you need, which can also scale.
+
+## Scaffold
+
+To scaffold our react app, we will use [vite](https://vitejs.dev), a modern JavaScript build tool. Run the below command, and step through the options. For framework choose **React** and for variant choose **Typescript + SWC**.
+
+```text title="terminal"
+npm create vite@latest
+```
+
+Once complete, run the below commands inside the new project directory to install dependencies and run your project.
+
+```text title="terminal"
+npm install
+
+npm run dev
+```
+
+## Cleanup
+
+Vite projects come with some starter files and code. We can clean this up before moving on with the next steps.
+You can delete **App.tsx** and **assets/react.svg** and remove all code from **index.css**. Then update **App.tsx**, it should look like the below component.
+
+```tsx title="App.tsx"
+function App() {
+	return (
+		<div>
+			<h1>Hello World</h1>
+		</div>
+	);
+}
+
+export default App;
+```
+
+## Formatting and Linting
+
+For formatting and linting, we will use [prettier](https://prettier.io/) and [eslint](https://eslint.org/).
+
+### Prettier
+
+To install prettier, run:
+
+```text wrap title="terminal"
+npm install --save-dev --save-exact prettier
+```
+
+Once installed, create a **.prettierrc** file in the root of your project. In this file, we can put all the prettier config options we want to use. You can use the below options to get started. Read more about prettier config [here](https://prettier.io/docs/en/options).
+
+```json title=".prettierrc"
+{
+	"useTabs": true,
+	"singleQuote": true,
+	"trailingComma": "none",
+	"semi": true,
+	"printWidth": 100
+}
+```
+
+### Eslint
+
+To install and configure eslint, run:
+
+```text title="terminal"
+npm init @eslint/config
+```
+
+This command will give you a walk through setup, giving you different setup options. See the options I have used below, but feel free to read more [here](https://eslint.org/docs/latest/use/configure/) and configure your project differently.
+
+```text wrap title="terminal"
+✔ How would you like to use ESLint? To check syntax, find problems, and enforce code style
+✔ What type of modules does your project use? JavaScript modules (import/export)
+✔ Which framework does your project use? react
+✔ Does your project use TypeScript? Yes
+✔ Where does your code run? browser
+✔ How would you like to define a style for your project? style guide
+✔ Which style guide do you want to follow? standard-with-typescript
+✔ What format do you want your config file to be in? · JavaScript
+```
+
+Based on your selection above, you should be asked to install additional dependencies, select **yes** and they will be installed.
+
+### Scripts
+
+With prettier and eslint installed and configured, let's add scripts to the **package.json** file to use these packages.
+
+```json title="package.json"
+"scripts": {
+	"lint": "eslint . --ext ts,tsx",
+	"format": "prettier --check .",
+	"format:fix": "prettier --write ."
+}
+```
+
+## Styling
+
+For styling, we will use [tailwind css](https://tailwindcss.com/), but this can be changed for other options - CSS modules, styled components etc.
