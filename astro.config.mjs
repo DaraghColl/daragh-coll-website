@@ -15,10 +15,12 @@ export default defineConfig({
 			styleOverrides: {
 				// You can optionally override the plugin's default styles here
 				frames: {
-					editorActiveTabIndicatorTopColor: 'transparent',
-					editorActiveTabIndicatorBottomColor: '#4f46e5'
+					editorActiveTabIndicatorBottomColor: 'transparent',
+					editorActiveTabForeground: '#ffffff',
+					editorActiveTabBackground: '#3730a3'
 				}
-			}
+			},
+			themes: ['material-theme-ocean']
 		}),
 		mdx()
 	]
