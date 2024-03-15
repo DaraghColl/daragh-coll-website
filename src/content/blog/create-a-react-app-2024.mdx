@@ -5,7 +5,9 @@ image: './images/jobs-board.png'
 pubDate: '20 March, 2024'
 ---
 
-If you have looked up how to create a react app, you will know that it can be quite difficult to decide which route to take. Hopefully this article will help you get started with creating a new react app which has all the functionality you need, which can also scale.
+import InfoBox from '../../components/content-components/info-box/info-box.astro';
+
+This article aims to be a simple, straightforward guide to setting up a react application in 2024. If you would just like to clone a repository with this setup, you can find the code [here](https://vitejs.dev).
 
 ## Scaffold
 
@@ -40,6 +42,40 @@ function App() {
 export default App;
 ```
 
+## Styling
+
+For styling, we will use [tailwind css](https://tailwindcss.com/), but this can be changed for other options - CSS modules, styled components etc.
+
+To install and configure tailwind run the below commands.
+
+```text wrap title="terminal"
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+This will create two files, **postcss.config.js** and **tailwind.config.js**.
+
+Add paths to the tailwimd config file and tailwind styles to your css file.
+
+```js wrap title="tailwind.config.js"
+/** @type {import('tailwindcss').Config} */
+export default {
+	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+	theme: {
+		extend: {}
+	},
+	plugins: []
+};
+```
+
+<br />
+
+```css title="tindex.css"
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
 ## Formatting and Linting
 
 For formatting and linting, we will use [prettier](https://prettier.io/) and [eslint](https://eslint.org/).
@@ -49,7 +85,13 @@ For formatting and linting, we will use [prettier](https://prettier.io/) and [es
 To install prettier, run:
 
 ```text wrap title="terminal"
-npm install --save-dev --save-exact prettier
+npm install --save-dev prettier
+```
+
+If using tailwind css, you can install a package to use prettier to format tailwind css classes.
+
+```text wrap title="terminal"
+npm install -D prettier prettier-plugin-tailwindcss
 ```
 
 Once installed, create a **.prettierrc** file in the root of your project. In this file, we can put all the prettier config options we want to use. You can use the below options to get started. Read more about prettier config [here](https://prettier.io/docs/en/options).
@@ -60,7 +102,8 @@ Once installed, create a **.prettierrc** file in the root of your project. In th
 	"singleQuote": true,
 	"trailingComma": "none",
 	"semi": true,
-	"printWidth": 100
+	"printWidth": 100,
+	"plugins": ["prettier-plugin-tailwindcss"] // remove if not using tailwind css
 }
 ```
 
@@ -99,6 +142,57 @@ With prettier and eslint installed and configured, let's add scripts to the **pa
 }
 ```
 
-## Styling
+{/\* <InfoBox>
+If your are using VsCode, you should install the prettier and eslint plugins. You can configure eslint to highlight errors in real time, and configure vs code to format on file save - Go to preferences and tick **Editor: Format On Save**.
 
-For styling, we will use [tailwind css](https://tailwindcss.com/), but this can be changed for other options - CSS modules, styled components etc.
+<InfoBox /> */}
+
+<InfoBox>
+	If your are using VsCode. You can configure eslint to highlight errors in real time, and configure
+	vs code to format on file save. Install the prettier and eslint plugins, and for Prettier set
+	default formatter to Prettier and go to preferences and tick **Editor: Format On Save**.
+</InfoBox>
+
+## Testing
+
+For testing, I prefer to use [cypress](https://www.cypress.io), but you can skip this step if you would like to use another library.
+
+To install cypress, run:
+
+```text wrap title="terminal"
+npm install cypress --save-dev
+```
+
+After cypress is installed, you can add the following scripts to your app
+
+```json title="package.json"
+"scripts": {
+	"cypress:open": "cypress open",
+	"cypress:run": "cypress run",
+	"cypress:run:component": "cypress run --component",
+	"cypress:run:e2e": "cypress run --e2e",
+}
+```
+
+Run the first script to go through an interactive setup of cypress unit and/or end to end testing.
+
+```text wrap title="terminal"
+npm install cypress:open
+```
+
+## Pre Commit
+
+Finally lets make sure our code is formatted and linted before we commit code. To do this, lets install [husky](https://www.cypress.io). **This package needs a git repository to work**
+To set husky up, run the following command:
+
+```text wrap title="terminal"
+npx husky init
+```
+
+When this command is complete, it will create a **.husky** folder. You can configure your pre commit checks by changing the **pre-commit** file. See below a sample that can be used for this project. This will check and fix formatting, run eslint, and run tests. If eslint or any tests fail, it will cancel the commit.
+
+```text wrap title="terminal"
+npm run format:fix
+npm run lint
+npm run cypress:run
+```
