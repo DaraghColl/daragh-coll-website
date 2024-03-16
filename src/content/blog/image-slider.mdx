@@ -1,0 +1,79 @@
+---
+title: 'Image slider'
+description: 'Build a modern simple image slider from scratch with HTML, CSS'
+image: './images/image-slider.png'
+pubDate: '1 March, 2024'
+---
+
+import Carousel from '../../components/content-components/carousel/carousel.astro';
+
+## The scenario
+
+You are building a website / app, and you find that you need a carousel to display some images. Your first thought may be to find a package on npm, intall and use it. Unless you need extended functionality, this is probably unnecessary. I will show you how you can build the below carousel with 13 lines of CSS.
+
+<Carousel />
+
+## HTML
+
+The html is pretty straight forward. We have a container div and inside we have an img tag for each image in our carousel.
+
+```html
+<div class="slide-container">
+	<img
+		src="https://images.pexels.com/photos/2382681/pexels-photo-2382681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+		class="slide"
+	/>
+	<img
+		src="https://images.pexels.com/photos/1650882/pexels-photo-1650882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+		class="slide"
+	/>
+	...repeat with other images
+</div>
+```
+
+## CSS
+
+Lets start with the container.
+
+```css
+.slide-container {
+	display: flex;
+	gap: 2rem;
+	overflow: scroll;
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
+}
+
+.slide-container::-webkit-scrollbar {
+	display: none;
+}
+```
+
+We start by using **flex** to put our images in a row, give a **gap** between each image of **2 rem**, and set the **overflow** to **scroll**, so we can move left to write to see each image as we scroll. <br />
+The next two properties you may have not seen before, but are straightforward.
+We set the **scroll-behavior** to **smooth** which does what you would expect, and the **scroll-snap-type** ensures that any scrolling will scroll to the next image. You can try this example without these properties to see the difference. <br />
+
+And finally we hide the scrollbar.
+
+Now lets add the styling for each slide (image).
+
+```css
+.slide {
+	width: 80%;
+	min-width: 80%;
+	height: 300px;
+	border-radius: 1rem;
+	object-fit: cover;
+	scroll-snap-align: center;
+	scroll-snap-stop: always;
+}
+```
+
+Again, there isn't anything out of the ordinary here, except maybe the last two lines.
+
+We start by setting the **width** and **height** for our images (I have used 80% so that we can see the other image partially, but if you want full width carousel, you can set the widths to 100%). We then set our **border-radius** to make those nice rounded borders (feel free to make these as rounded as you like, or remove the property for straight corners), and set the **object-fit** property to **cover** so our image stretches and coers the available space.
+
+The last two properties:
+
+Setting the **scroll-snap-align** to center will ensure that as you scroll, slides with an slide on either side will always scroll to the center. <br />
+The property **scroll-snap-stop** ensures that when scrolling, it stops at the next scroll item (try removing this and you can scroll across multiple slides)
