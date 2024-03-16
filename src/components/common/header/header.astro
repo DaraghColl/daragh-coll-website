@@ -4,11 +4,14 @@ import LadIcon from '@components/common/lad-icon/lad-icon.astro';
 
 <nav class="absolute z-20 w-full bg-transparent">
 	<div class="container-sm mx-auto flex items-center justify-between">
-		<LadIcon id="navbar_lad" variant="base" height="2.5rem" width="2.5rem" color="white" />
+		<a href="/" aria-label="home" data-astro-reload>
+			<LadIcon id="navbar_lad" variant="base" height="2.5rem" width="2.5rem" color="white" />
+		</a>
 		<ul class="hidden list-none gap-12 text-xl font-semibold text-white md:flex">
-			<li><a href="#section__projects">Projects</a></li>
-			<li><a href="#section__experience">Experience</a></li>
-			<li><a href="#section__contact">Contact</a></li>
+			<li><a href="/blog">Blog</a></li>
+			<li><a href="/#projects">Projects</a></li>
+			<li><a href="/#experience">Experience</a></li>
+			<li><a href="/#contact">Contact</a></li>
 		</ul>
 	</div>
 </nav>

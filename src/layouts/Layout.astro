@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/common/header/header.astro';
 
 interface Props {
@@ -33,32 +34,33 @@ const { title, description, image } = Astro.props;
 		<meta name="twitter:image" content={image} />
 
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<Header />
 		<slot />
+		<style is:global>
+			html {
+				font-family: system-ui, sans-serif;
+				scroll-behavior: smooth;
+				scroll-padding-top: 4rem;
+			}
+
+			.container-sm {
+				max-width: 768px;
+				margin: 0 auto;
+				padding: 1rem;
+			}
+
+			.container-md {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 1rem;
+			}
+
+			.height-full-smallest {
+				height: 100svh;
+			}
+		</style>
 	</body>
 </html>
-<style is:global>
-	html {
-		font-family: system-ui, sans-serif;
-		scroll-behavior: smooth;
-		scroll-padding-top: 4rem;
-	}
-
-	.container-sm {
-		max-width: 768px;
-		margin: 0 auto;
-		padding: 1rem;
-	}
-
-	.container-md {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 1rem;
-	}
-
-	.height-full-smallest {
-		height: 100svh;
-	}
-</style>
