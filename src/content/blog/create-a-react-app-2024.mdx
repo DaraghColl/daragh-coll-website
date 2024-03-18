@@ -7,8 +7,9 @@ pubDate: '20 March, 2024'
 
 import InfoBox from '../../components/content-components/info-box/info-box.astro';
 
-This article aims to be a simple, straightforward guide to setting up a react application in 2024. If you would just like to clone a repository with this setup, you can find the code 
-<a target="_blank" href="https://vitejs.dev">in this github repository</a>.
+This article aims to be a simple, straightforward guide to setting up a react application in 2024. If you would just like to clone a repository with this setup, you can find the code <a target="_blank" href="https://github.com/DaraghColl/react-starter-2024">
+	in this github repository
+</a>.
 
 ## Scaffold
 
@@ -110,34 +111,27 @@ Once installed, create a **.prettierrc** file in the root of your project. In th
 
 ### Eslint
 
-To install and configure eslint, run:
+The vite project comes preconfigured with eslint and some packages to handle linting for this typescript and react app.
 
-```text title="terminal"
-npm init @eslint/config
-```
 
-This command will give you a walk through setup, giving you different setup options. See the options I have used below, but feel free to read more <a target="_blank" href="//eslint.org/docs/latest/use/configure">in the eslint docse</a> and configure your project differently.
+<InfoBox>
+	If you need to setup eslint from scratch, you can run the below command which will give you a walkthrough setup for your app.
 
-```text wrap title="terminal"
-✔ How would you like to use ESLint? To check syntax, find problems, and enforce code style
-✔ What type of modules does your project use? JavaScript modules (import/export)
-✔ Which framework does your project use? react
-✔ Does your project use TypeScript? Yes
-✔ Where does your code run? browser
-✔ How would you like to define a style for your project? style guide
-✔ Which style guide do you want to follow? standard-with-typescript
-✔ What format do you want your config file to be in? · JavaScript
-```
+	```
+	npm init @eslint/config
+	```
+</InfoBox>
 
-Based on your selection above, you should be asked to install additional dependencies, select **yes** and they will be installed.
+
+You can read more about eslint setup <a target="_blank" href="//eslint.org/docs/latest/use/configure">in the eslint docs</a> and configure your project differently.
 
 ### Scripts
 
-With prettier and eslint installed and configured, let's add scripts to the **package.json** file to use these packages.
+With prettier installed and configured, let's add scripts to the **package.json** file alongside the eslint script.
 
 ```json title="package.json"
 "scripts": {
-	"lint": "eslint . --ext ts,tsx",
+	//...other scripts
 	"format": "prettier --check .",
 	"format:fix": "prettier --write ."
 }
@@ -156,7 +150,7 @@ For testing, I prefer to use <a target="_blank" href="https://www.cypress.io">cy
 To install cypress, run:
 
 ```text wrap title="terminal"
-npm install cypress -D
+npm install -D cypress
 ```
 
 After cypress is installed, you can add the following scripts to your app
@@ -170,10 +164,24 @@ After cypress is installed, you can add the following scripts to your app
 }
 ```
 
+You might get some eslint errors in your cypress files, to fix this, install and add the **eslint-plugin-cypress** package.
+
+```text wrap title="terminal"
+npm install -D eslint-plugin-cypress
+```
+
+<br />
+
+```js wrap title=".eslintrc.cjs"
+extends: [
+	'plugin:cypress/recommended'
+]
+```
+
 Run the first script to go through an interactive setup of cypress unit and/or end to end testing.
 
 ```text wrap title="terminal"
-npm install cypress:open
+npm run cypress:open
 ```
 
 ## Pre Commit
