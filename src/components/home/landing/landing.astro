@@ -11,25 +11,45 @@ import Actions from './actions.astro';
 	<div class="container-sm z-20 grid justify-center">
 		<div>
 			<div class="flex items-center gap-4">
-				<h1 class="text-5xl font-bold tracking-tight text-white md:text-6xl">Hi, I’m Daragh</h1>
+				<h1
+					class="translate-y-5 text-5xl font-bold tracking-tight text-white opacity-0 transition-all duration-1000 ease-in-out md:text-6xl"
+					data-animate="fade-in"
+					data-animate-delay=".25"
+				>
+					Hi, I’m Daragh
+				</h1>
 				<div
 					data-animate="fade-in"
 					data-animate-delay="0.7"
-					class="translate-y-2 pb-1 opacity-0 transition-all duration-1000 ease-in-out"
+					class="translate-y-5 pb-1 opacity-0 transition-all duration-1000 ease-in-out"
 				>
 					<LadIcon id="landing_lad" variant="wave" color="#6366f1" height="3rem" width="3rem" />
 				</div>
 			</div>
-			<h2 class="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
+			<h2
+				class="mt-4 translate-y-5 text-3xl font-bold tracking-tight text-white opacity-0 transition-all duration-1000 ease-in-out md:text-4xl"
+				data-animate="fade-in"
+				data-animate-delay=".5"
+			>
 				Welcome to my website
 			</h2>
-			<h3 class="mt-8 max-w-xl text-2xl font-semibold tracking-tight text-gray-200">
+			<h3
+				class="mt-8 max-w-xl text-2xl font-semibold tracking-tight text-gray-200 opacity-0 transition-all duration-1000 ease-in-out"
+				data-animate="fade-in"
+				data-animate-delay=".75"
+			>
 				I am a fullstack developer, specialising in front end development. I like to design, code
 				and <span class="animated-text">animate</span>.
 			</h3>
 		</div>
-		<Actions />
-		<Social />
+		<div
+			class="translate-y-5 opacity-0 transition-all duration-1000 ease-in-out"
+			data-animate="fade-in"
+			data-animate-delay="1"
+		>
+			<Actions />
+			<Social />
+		</div>
 	</div>
 	<div
 		class="gradient-element absolute -top-40 left-[30%] z-10 h-3/4 w-40 -rotate-45 rounded-full bg-gradient-to-r from-indigo-600 to-violet-500 opacity-60 blur-3xl"

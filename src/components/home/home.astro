@@ -90,10 +90,14 @@ const { projects, workExperience } = Astro.props as Props;
 	const observerCallback = (entries: IntersectionObserverEntry[]) => {
 		entries.forEach((entry: any) => {
 			if (entry.isIntersecting) {
-				setTimeout(() => {
-					entry.target.style.opacity = '1';
-					entry.target.style.transform = 'translateY(0)';
-				}, 50);
+				const delay = entry.target.getAttribute('data-animate-delay');
+				setTimeout(
+					() => {
+						entry.target.style.opacity = '1';
+						entry.target.style.transform = 'translateY(0)';
+					},
+					delay ? delay * 1000 : 1000
+				);
 			}
 		});
 	};
