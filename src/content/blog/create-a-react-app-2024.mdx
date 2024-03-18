@@ -7,11 +7,12 @@ pubDate: '20 March, 2024'
 
 import InfoBox from '../../components/content-components/info-box/info-box.astro';
 
-This article aims to be a simple, straightforward guide to setting up a react application in 2024. If you would just like to clone a repository with this setup, you can find the code [in this github repository](https://vitejs.dev).
+This article aims to be a simple, straightforward guide to setting up a react application in 2024. If you would just like to clone a repository with this setup, you can find the code 
+<a target="_blank" href="https://vitejs.dev">in this github repository</a>.
 
 ## Scaffold
 
-To scaffold our react app, we will use [vite](https://vitejs.dev), a modern JavaScript build tool. Run the below command, and step through the options. For framework choose **React** and for variant choose **Typescript + SWC**.
+To scaffold our react app, we will use <a target="_blank" href="https://vitejs.dev">vite</a>, a modern JavaScript build tool. Run the below command, and step through the options. For framework choose **React** and for variant choose **Typescript + SWC**.
 
 ```text title="terminal"
 npm create vite@latest
@@ -44,7 +45,7 @@ export default App;
 
 ## Styling
 
-For styling, we will use [tailwind css](https://tailwindcss.com/), but this can be changed for other options - CSS modules, styled components etc.
+For styling, we will use <a target="_blank" href="https://tailwindcss.com">tailwind css</a>, but this can be changed for other options - CSS modules, styled components etc.
 
 To install and configure tailwind run the below commands.
 
@@ -78,7 +79,7 @@ export default {
 
 ## Formatting and Linting
 
-For formatting and linting, we will use [prettier](https://prettier.io/) and [eslint](https://eslint.org/).
+For formatting and linting, we will use <a target="_blank" href="https://prettier.io">prettier</a> and <a target="_blank" href="https://eslint.org">eslint</a>.
 
 ### Prettier
 
@@ -94,7 +95,7 @@ If using tailwind css, you can install a package to use prettier to format tailw
 npm install -D prettier prettier-plugin-tailwindcss
 ```
 
-Once installed, create a **.prettierrc** file in the root of your project. In this file, we can put all the prettier config options we want to use. You can use the below options to get started. Read more about prettier config [on the prettier docs website](https://prettier.io/docs/en/options).
+Once installed, create a **.prettierrc** file in the root of your project. In this file, we can put all the prettier config options we want to use. You can use the below options to get started. Read more about prettier config <a target="_blank" href="https://prettier.io/docs/en/options">on the prettier docs website</a>.
 
 ```json title=".prettierrc"
 {
@@ -115,7 +116,7 @@ To install and configure eslint, run:
 npm init @eslint/config
 ```
 
-This command will give you a walk through setup, giving you different setup options. See the options I have used below, but feel free to read more [in the eslint docs](https://eslint.org/docs/latest/use/configure/) and configure your project differently.
+This command will give you a walk through setup, giving you different setup options. See the options I have used below, but feel free to read more <a target="_blank" href="//eslint.org/docs/latest/use/configure">in the eslint docse</a> and configure your project differently.
 
 ```text wrap title="terminal"
 ✔ How would you like to use ESLint? To check syntax, find problems, and enforce code style
@@ -150,7 +151,7 @@ With prettier and eslint installed and configured, let's add scripts to the **pa
 
 ## Testing
 
-For testing, I prefer to use [cypress](https://www.cypress.io), but you can skip this step if you would like to use another library.
+For testing, I prefer to use <a target="_blank" href="https://www.cypress.io">cypress</a>, but you can skip this step if you would like to use another library.
 
 To install cypress, run:
 
@@ -177,7 +178,7 @@ npm install cypress:open
 
 ## Pre Commit
 
-Finally lets make sure our code is formatted and linted before we commit code. To do this, lets install [husky](https://www.cypress.io). **This package needs a git repository to work**
+Finally lets make sure our code is formatted and linted before we commit code. To do this, lets install <a target="_blank" href="https://typicode.github.io/husky/">husky</a>. **This package needs a git repository to work**
 To set husky up, run the following command:
 
 ```text wrap title="terminal"
