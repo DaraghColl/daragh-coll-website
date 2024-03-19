@@ -79,30 +79,38 @@ const { projects, workExperience } = Astro.props as Props;
 </Layout>
 
 <script>
-	const elementsToFadeIn = document.querySelectorAll('[data-animate="fade-in"]');
+	const animateElements = () => {
+		const elementsToFadeIn = document.querySelectorAll('[data-animate="fade-in"]');
 
-	const observerOptions = {
-		root: null,
-		rootMargin: '150px',
-		threshold: 0.5
+		const observerOptions = {
+			root: null,
+			rootMargin: '150px',
+			threshold: 0.5
+		};
+
+		const observerCallback = (entries: IntersectionObserverEntry[]) => {
+			entries.forEach((entry: any) => {
+				if (entry.isIntersecting) {
+					const delay = entry.target.getAttribute('data-animate-delay');
+					setTimeout(
+						() => {
+							entry.target.style.opacity = '1';
+							entry.target.style.transform = 'translateY(0)';
+						},
+						delay ? delay * 1000 : 1000
+					);
+				}
+			});
+		};
+
+		const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+		elementsToFadeIn.forEach((element) => observer.observe(element));
 	};
 
-	const observerCallback = (entries: IntersectionObserverEntry[]) => {
-		entries.forEach((entry: any) => {
-			if (entry.isIntersecting) {
-				const delay = entry.target.getAttribute('data-animate-delay');
-				setTimeout(
-					() => {
-						entry.target.style.opacity = '1';
-						entry.target.style.transform = 'translateY(0)';
-					},
-					delay ? delay * 1000 : 1000
-				);
-			}
-		});
-	};
+	animateElements();
 
-	const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-	elementsToFadeIn.forEach((element) => observer.observe(element));
+	document.addEventListener('astro:after-swap', () => {
+		animateElements();
+	});
 </script>
